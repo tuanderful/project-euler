@@ -12,6 +12,10 @@
 # Answer:
 # 4613732
 
+# TIL:
+# Alternative to passing in 3rd step param in range() is list comprehension:
+#   evens = [x for x in range(100) if x%2 == 0]
+
 FIB_MEMO = [1, 1]
 
 # 0 => 0
@@ -29,6 +33,8 @@ def fibonnaci(n):
 
 
 # Leverages memoization, but assumes that you would never skip.
+# Will break if you attempt to call if there exists one value x
+# less than n for which FIB_MEMO(x) is not defined
 def fibonnaci_2(n):
   # faulty check
   if n < len(FIB_MEMO):
@@ -40,6 +46,7 @@ def fibonnaci_2(n):
 
 
 # Recursive
+# A little less error prone than fibonnaci_2, but the if condition still seems faulty
 def fibonnaci_3(n):
   if n < len(FIB_MEMO):
     return FIB_MEMO[n]
@@ -48,9 +55,9 @@ def fibonnaci_3(n):
     FIB_MEMO.insert(n, newValue)
     return newValue
 
+
+# ------------------------------------------------------------------------------
 def problem_002():
-  # Alternative to passing in 3rd step param in range() is list comprehension:
-  # evens = [x for x in range(100) if x%2 == 0]
   sum, i, term = 0, 0, 0
 
   while term < 4000000:
@@ -63,7 +70,7 @@ def problem_002():
   print "Sum: " + str(sum)
 
 
-
+# ------------------------------------------------------------------------------
 # Execute standalone
 problem_002()
 
