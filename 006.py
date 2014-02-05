@@ -33,17 +33,11 @@ def sum(n):
 def problem_006():
 
   sumOfSq = sumOfSquares(100)
-  sumOfNum = sum(100)
 
+  sumOfNum = sum(100)
   squareOfSum = sumOfNum*sumOfNum
 
   print squareOfSum - sumOfSq
-
-
-
-
-  #print "Largest Prime Factor: " + str(lpf)
-
 
 # ------------------------------------------------------------------------------
 # Execute standalone
