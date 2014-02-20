@@ -23,24 +23,51 @@
 # Answer:
 # 76576500
 
-<<<<<<< HEAD
+
 TRIANGLES = [0, 1]
 
 
 # ------------------------------------------------------------------------------
-# countDivisors(8654880) runs in 0.7s
+def getPrimeFactors(n):
+  # loop from 2 to n/2 (i)
+  # if n % i == 0, then set n to n/i
+  i = 2
+  factors = []
+
+  while i <= n:
+    # if i is a factor, it must be prime, since we've checked (and divided out) all factors less than i
+    if (n % i == 0):
+      n = n / i
+      factors.append(i)
+    else:
+      # Can we optimize this by incrementing by 2?
+      i += 1
+
+  return factors
+
+
+# ------------------------------------------------------------------------------
 def countDivisors(n):
-  if n == 1:
-    return 1
+  # Consider prime factorization:
+  # n = a^p + b^q + ... + c^r
+  #   only check up to c where c = sqrt(n)
+  # Then n has z factors, where z = (p+1) * (q+1) * (r+1)
 
-  halfN = n/2
-  divisors = 2   # divisible by 1 and itself
+  z = 1
 
-  for i in range(2, halfN+1):
-    if(n%i == 0):
-      divisors += 1
+  primeFactors = getPrimeFactors(n)
+  uniqueFactors = set(primeFactors)
 
-  return divisors
+  for i in uniqueFactors:
+    # count how many times it appears
+    occurences = primeFactors.count(i)
+
+    z = z * (occurences+1)
+
+  # print primeFactors
+  # print uniqueFactors
+
+  return z
 
 
 # ------------------------------------------------------------------------------
@@ -79,52 +106,7 @@ def problem_012():
     else:
       i += 1
 
-=======
-import math
-
-# Can we optimize this by only checking up to m/3? m/4??
-def countDivisors(m):
-  halfM = int(math.ceil(m/2))
-  divisors = [1, m]
-
-  if(m % 2 == 0):
-    divisors.append(2)
-
-  for i in range(3, halfM + 1):
-    if (m % i == 0):
-      divisors.append(i)
-
-  return len(divisors)
-
-
-# ------------------------------------------------------------------------------
-# Generate triangle numbers, and as each one is found, count the divisors
-def problem_012():
-  #countDivisors(120)
-
-
-  triangles = []
-  runningSum = 0
-  divisorCt = 0
-  i = 0
-
-  while divisorCt < 500:
-    runningSum += i
-    divisorCt = countDivisors(runningSum)
-    i += 1
-
-    #triangles.append(runningSum)
-    #print `i` + ": " + `runningSum`
-
-  print runningSum
->>>>>>> 4d3c79394c1903777811d6a1cf660bf2b3f0cd5e
-
 # ------------------------------------------------------------------------------
 # Execute standalone
 problem_012()
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 4d3c79394c1903777811d6a1cf660bf2b3f0cd5e
