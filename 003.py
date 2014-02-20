@@ -4,7 +4,6 @@
 
 # What is the largest prime factor of the number 600851475143 ?
 
-
 # Answer:
 # 6857
 
@@ -29,6 +28,7 @@ def isPrime(n):
   return True
 
 
+# ------------------------------------------------------------------------------
 def largestPrimeFactor(n):
   # loop from 2 to n/2 (i)
   # if n % i == 0, then i is LPF, then set n to n/i

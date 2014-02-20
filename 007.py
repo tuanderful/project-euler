@@ -15,6 +15,7 @@
 #        4.2s  cut upper bound of checks in half
 #        2.4s  cut upper bound of checks in half (bitwise shift)
 #        0.2s  use sqrt(n) as upper-bound for checks
+#              incrememt by 2 (check only odd numbers duh)
 
 
 import math
@@ -22,6 +23,7 @@ import math
 PRIMES_MEMO = [2, 3]
 
 
+# ------------------------------------------------------------------------------
 def isPrime(n):
   sqrtN = int(math.ceil(math.sqrt(n)))
 
@@ -63,7 +65,7 @@ def problem_007():
   while len(PRIMES_MEMO) < 10001:
     # Check if its a prime, add it to memo if it is
     isPrime_2(i)
-    i += 1
+    i += 2
 
   print PRIMES_MEMO[10000]
 

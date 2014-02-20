@@ -20,6 +20,68 @@
 
 # What is the value of the first triangle number to have over five hundred divisors?
 
-
 # Answer:
 # 76576500
+
+TRIANGLES = [0, 1]
+
+
+# ------------------------------------------------------------------------------
+# countDivisors(8654880) runs in 0.7s
+def countDivisors(n):
+  if n == 1:
+    return 1
+
+  halfN = n/2
+  divisors = 2   # divisible by 1 and itself
+
+  for i in range(2, halfN+1):
+    if(n%i == 0):
+      divisors += 1
+
+  return divisors
+
+
+# ------------------------------------------------------------------------------
+def triangle(n):
+  # If we already have a value calculated
+  if n < len(TRIANGLES):
+    return TRIANGLES[n]
+
+  # If not already calculated, then calc and return
+  # First, check if the immediately previous triangle has been calc.
+  if (n-1) < len(TRIANGLES):
+    lastTriangle = TRIANGLES[n-1]
+  else:
+    lastTriangle = triangle(n-1)
+
+  thisTriangle = n + lastTriangle
+  TRIANGLES.append(thisTriangle)
+
+  return thisTriangle;
+
+
+# ------------------------------------------------------------------------------
+def problem_012():
+
+  answerFound = False
+  i = 1
+
+  while answerFound != True:
+    thisTriangle = triangle(i)
+    divisors = countDivisors(thisTriangle)
+
+    if (divisors > 500):
+      print `i` + ": " + `thisTriangle` + " has " + `divisors` + " divisors."
+      answerFound = True
+
+    else:
+      i += 1
+
+
+# ------------------------------------------------------------------------------
+# Execute standalone
+problem_012()
+
+
+

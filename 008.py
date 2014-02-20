@@ -40,6 +40,7 @@ def prodUpTo(n):
   print numAtIdx(n) * numAtIdx(n-1) * numAtIdx(n-2) * numAtIdx(n-3) * numAtIdx(n-4);
   return numAtIdx(n) * numAtIdx(n-1) * numAtIdx(n-2) * numAtIdx(n-3) * numAtIdx(n-4);
 
+
 # ------------------------------------------------------------------------------
 def problem_008():
 
