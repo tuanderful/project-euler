@@ -9,16 +9,27 @@
 # 906609
 
 
-#def isPalindrome(n):
 
-# ------------------------------------------------------------------------------
+
+# ==============================================================================
 # Start from a palindrome, determine factors
 def approach_1():
 
-  for i in reversed(range(100,999)):
-    print i
+# 100, 1000
+  for i in reversed(range(900,1000)):
+    # This is extended slice syntax. It works by doing [begin:end:step]
+    # by leaving begin and end off and specifying a step of -1, it reverses a string.
+    palindrome = `i` + `i`[::-1]
+    print palindrome
+
 
 # ------------------------------------------------------------------------------
+# Multiply two three-digit numbers and determine if its a palindrome
+#def isPalindrome(n):
+
+# ------------------------------------------------------------------------------
+
+
 def problem_004():
 
   approach_1()
