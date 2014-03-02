@@ -8,7 +8,7 @@ Project Euler, implemented in Python
 &#x2714; 3. Largest prime factor  
 &#x2610; 4. Largest palindrome product  
 &#x2610; 5. Smallest multiple  
-&#x2714; 6. Sum square difference 
+&#x2714; 6. Sum square difference  
 &#x2714; 7. 10001st prime  
 &#x2714; 8. Largest product in a series  
 &#x2610; 9. Special Pythagorean triplet  
